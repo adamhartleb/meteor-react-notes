@@ -4,12 +4,19 @@ import { Notes } from '../api/notes'
 import { createContainer } from 'meteor/react-meteor-data'
 
 import NoteListHeader from './NoteListHeader'
+import NoteListItem from './NoteListItem'
 
 export const NoteList = ({ notes }) => {
+  const renderNotes = () => {
+    return notes.map(note => {
+      return <NoteListItem {...note} />
+    })
+  }
   return (
     <div>
-      NoteList { notes.length }
       <NoteListHeader />
+      {renderNotes()}
+      NoteList { notes.length }
     </div>
   )
 }
