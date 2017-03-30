@@ -22,10 +22,8 @@ const onEnterPrivatePage = () => {
 }
 const onEnterNotesPage = (nextState) => {
   if (!Meteor.userId()) {
-    console.log('fired')
     browserHistory.replace('/')
   } else {
-    console.log(nextState.params.id)
     Session.set('selectedNoteId', nextState.params.id)
   }
 }
