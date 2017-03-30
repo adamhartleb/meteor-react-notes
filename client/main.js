@@ -9,7 +9,8 @@ import '../imports/startup/simple-schema-configuration.js'
 
 Tracker.autorun(() => {
   const isAuthenticated = Meteor.userId()
-  onAuthChange(isAuthenticated)
+  const selectedNoteId = Session.get('selectedNoteId')
+  onAuthChange(isAuthenticated, selectedNoteId)
 })
 
 Tracker.autorun(() => {

@@ -9,7 +9,7 @@ import NotFound from '../ui/NotFound'
 import Login from '../ui/Login'
 
 const unauthenticatedPages = ['/', '/signup']
-const authenticatedPages = ['/dashboard']
+
 const onEnterPublicPage = () => {
   if (Meteor.userId()) {
     browserHistory.replace('/dashboard')
@@ -27,8 +27,10 @@ const onEnterNotesPage = (nextState) => {
     Session.set('selectedNoteId', nextState.params.id)
   }
 }
-export const onAuthChange = (isAuthenticated) => {
+export const onAuthChange = (isAuthenticated, pageId) => {
   const pathname = browserHistory.getCurrentLocation().pathname
+  const authenticatedPages = ['/dashboard', `/dashboard/${pageId}`]
+
   const isUnauthenticatedPage = unauthenticatedPages.includes(pathname)
   const isAuthenticatedPage = authenticatedPages.includes(pathname)
 
