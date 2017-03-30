@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 import expect from 'expect'
 import { Meteor } from 'meteor/meteor'
 
@@ -20,7 +21,7 @@ if (Meteor.isServer) {
       updatedAt: 0,
       userId: 'testUserId2'
     }
-      
+
     beforeEach(function () {
       Notes.remove({})
       Notes.insert(noteOne)
@@ -41,7 +42,7 @@ if (Meteor.isServer) {
       Meteor.server.method_handlers['notes.remove'].call({ userId: noteOne.userId }, noteOne._id)
       expect(Notes.findOne({ _id: noteOne._id })).toNotExist()
     })
-    
+
     it('Remove should not remove a note if user is unauthenticated', function () {
       expect(() => {
         Meteor.server.method_handlers['notes.remove'].call({ userId: null }, noteOne._id)
@@ -67,7 +68,7 @@ if (Meteor.isServer) {
 
     it('Update should throw error if extra properties are sent to update', function () {
       const extraProp = 'This should fail'
-          , title = 'This is the updated title'
+      const title = 'This is the updated title'
       expect(() => {
         Meteor.server.method_handlers['notes.update'].apply({ userId: noteOne.userId }, [noteOne._id, { title, extraProp }])
       }).toThrow()

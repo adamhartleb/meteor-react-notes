@@ -2,21 +2,22 @@ import React, { PropTypes } from 'react'
 import { Meteor } from 'meteor/meteor'
 import { Notes } from '../api/notes'
 import { createContainer } from 'meteor/react-meteor-data'
+import { Session } from 'meteor/session'
 
 import NoteListHeader from './NoteListHeader'
 import NoteListItem from './NoteListItem'
 import NoteListEmptyItem from './NoteListEmptyItem'
 
 export const NoteList = ({ notes }) => {
-  const renderNotes = () => {
-    return notes.map(note => {
-      return <NoteListItem {...note} />
-    })
-  }
   return (
     <div>
       <NoteListHeader />
-      {notes.length === 0 ? <NoteListEmptyItem /> : renderNotes()}
+      {notes.length === 0
+        ? <NoteListEmptyItem />
+        : notes.map(note => {
+          return <NoteListItem key={note._id} {...note} />
+        })
+      }
     </div>
   )
 }
@@ -26,9 +27,15 @@ NoteList.propTypes = {
 }
 
 export default createContainer(() => {
+  const selectedNoteId = Session.get('selectedNoteId')
   Meteor.subscribe('notes')
 
   return {
-    notes: Notes.find().fetch()
+    notes: Notes.find().fetch().map(note => {
+      return {
+        selected: selectedNoteId === note._id,
+        ...note
+      }
+    })
   }
 }, NoteList)
