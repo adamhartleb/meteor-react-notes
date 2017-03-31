@@ -14,7 +14,7 @@ export const NoteList = ({ notes }) => {
       <NoteListHeader />
       {notes.length === 0
         ? <NoteListEmptyItem />
-        : notes.map(note => {
+        : notes.sort((a, b) => b.updatedAt - a.updatedAt).map(note => {
           return <NoteListItem key={note._id} {...note} />
         })
       }
