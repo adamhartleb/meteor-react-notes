@@ -47,7 +47,7 @@ export class Editor extends Component {
     const { note, selectedNoteId, meteorCall } = this.props
     if (note) {
       return (
-        <div>
+        <div className='editor-content'>
           <input
             value={this.state.title}
             placeholder='Your title here'

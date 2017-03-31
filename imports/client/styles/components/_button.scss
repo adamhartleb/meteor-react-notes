@@ -4,6 +4,7 @@
   color: $button-color;
   cursor: pointer;
   font-size: $base-font-size;
+  font-family: 'Lato';
   line-height: 1.2;
   margin-bottom: $space;
   padding: $input-spacing;
@@ -30,6 +31,7 @@
 }
 
 .button--link-text {
+  font-size: 1.6rem;
   background: none;
   margin: 0;
   padding: 0;

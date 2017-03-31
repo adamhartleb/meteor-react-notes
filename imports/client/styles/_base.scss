@@ -8,12 +8,11 @@ html {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: $base-font-size;
 }
 
 h1 {
-  font-weight: 300;
   margin-bottom: $space;
 }
 
@@ -35,4 +34,5 @@ input[type=text], input[type=email], input[type=password] {
   font-size: $base-font-size;
   margin-bottom: $space;
   padding: $input-spacing;
+  font-family: 'Lato';
 }
