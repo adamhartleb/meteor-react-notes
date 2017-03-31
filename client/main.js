@@ -8,9 +8,9 @@ import { routes, onAuthChange } from '../imports/routes/routes'
 import '../imports/startup/simple-schema-configuration.js'
 
 Tracker.autorun(() => {
-  const isAuthenticated = Meteor.userId()
-  const selectedNoteId = Session.get('selectedNoteId')
-  onAuthChange(isAuthenticated, selectedNoteId)
+  let privacy = Session.get('pagePrivacy')
+  let isAuthenticated = Meteor.userId()
+  onAuthChange(isAuthenticated, privacy)
 })
 
 Tracker.autorun(() => {
