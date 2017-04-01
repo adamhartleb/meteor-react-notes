@@ -47,7 +47,7 @@ export class Editor extends Component {
     const { note, selectedNoteId, meteorCall } = this.props
     if (note) {
       return (
-        <div className='editor-content'>
+        <div className='editor'>
           <input
             value={this.state.title}
             placeholder='Your title here'
@@ -59,10 +59,14 @@ export class Editor extends Component {
           <button onClick={() => this.handleDelete(selectedNoteId, meteorCall)}>Delete Note</button>
         </div>
       )
-    } else if (selectedNoteId) {
-      return <p>Note not found</p>
     } else {
-      return <p>Pick or create a note to get started</p>
+      return (
+        <div className='editor'>
+          <p>
+            { selectedNoteId ? 'Note not found' : 'Pick or create a note to get started' }
+          </p>
+        </div>
+      )
     }
   }
 }

@@ -10,7 +10,7 @@ import NoteListEmptyItem from './NoteListEmptyItem'
 
 export const NoteList = ({ notes }) => {
   return (
-    <div>
+    <div className='item-list'>
       <NoteListHeader />
       {notes.length === 0
         ? <NoteListEmptyItem />

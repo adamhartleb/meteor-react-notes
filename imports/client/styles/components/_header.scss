@@ -7,9 +7,11 @@
 .header__content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: $site-max-width;
   margin: 0 auto;
   padding: $space;
+  height: $header-height;
 }
 
 .header__title {
