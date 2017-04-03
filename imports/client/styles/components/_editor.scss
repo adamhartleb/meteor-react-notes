@@ -20,6 +20,7 @@
 .editor__body {
   flex-grow: 1;
   margin-bottom: $large-space;
+  min-height: 35rem;
   outline: none;
   padding: $input-spacing;
   resize: none;
