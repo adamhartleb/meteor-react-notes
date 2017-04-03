@@ -10,7 +10,9 @@ export const NoteListHeader = ({ meteorCall }) => {
     })
   }
   return (
-    <button onClick={setNote}>Add Note</button>
+    <div className='item-list__header'>
+      <button className='button' onClick={setNote}>Add Note</button>
+    </div>
   )
 }
 

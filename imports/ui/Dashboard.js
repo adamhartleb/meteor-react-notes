@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div>
       <PrivateHeader title='Your Notes' />
       <div className='page-content'>
-        <div className='page-content__siderbar'>
+        <div className='page-content__sidebar'>
           <NoteList />
         </div>
         <div className='page-content__main'>

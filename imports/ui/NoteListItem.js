@@ -4,11 +4,11 @@ import { Session } from 'meteor/session'
 import { createContainer } from 'meteor/react-meteor-data'
 
 export const NoteListItem = ({ updatedAt, title, _id, Session, selected }) => {
+  const className = selected ? 'item item--selected' : 'item'
   return (
-    <div onClick={() => Session.set('selectedNoteId', _id)}>
+    <div className={className} onClick={() => Session.set('selectedNoteId', _id)}>
       <h5>{title || 'Untitled'}</h5>
-      { selected ? 'Selected' : undefined }
-      <p>{moment(updatedAt).format('M/DD/YY')}</p>
+      <p className='item--date'>{moment(updatedAt).format('M/DD/YY')}</p>
     </div>
   )
 }

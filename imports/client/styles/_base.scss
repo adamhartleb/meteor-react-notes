@@ -30,7 +30,7 @@ a {
   color: black;
 }
 
-input[type=text], input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password], textarea {
   border: 1px solid $input-border;
   font-size: $base-font-size;
   margin-bottom: $space;

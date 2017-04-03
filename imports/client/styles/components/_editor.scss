@@ -1,5 +1,33 @@
 .editor {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border: 1px solid $grey;
   width: 100%;
+  padding: $large-space;
+}
+
+.editor__title {
+  border: none;
+  border-bottom: 2px solid $grey;
+  font-size: $large-font-size;
+  margin-bottom: $large-space;
+  outline: none;
+  padding: $input-spacing;
+  font-family: 'Lato'
+}
+
+.editor__body {
+  flex-grow: 1;
+  margin-bottom: $large-space;
+  outline: none;
+  padding: $input-spacing;
+  resize: none;
+}
+
+.editor--no_note {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-family: 'Montserrat'
 }
