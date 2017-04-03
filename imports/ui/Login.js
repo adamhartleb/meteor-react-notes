@@ -27,6 +27,9 @@ export class Login extends Component {
   render () {
     return (
       <div className='boxed-view'>
+        <div className='boxed-view__title'>
+          <h1>Swiftnote</h1>
+        </div>
         <div className='boxed-view__box'>
           <h1>Login</h1>
 
