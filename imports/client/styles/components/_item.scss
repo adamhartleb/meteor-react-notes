@@ -30,8 +30,21 @@
   border-left: 4px solid $brand-primary;
 }
 
-.item--date {
-  font-size: 1.2rem;
+.item__subtitle {
+  font-size: 1.3rem;
+  font-family: Arial;
+  font-weight: 300;
+  color: $dark-grey;
+}
+
+.item__title {
+  font-family: 'Lato';
+  font-weight: normal;
+  font-size: 1.6rem;
+}
+
+.item--selected .item__title {
+  font-weight: bold;
 }
 
 .item__message {

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Lato');
+@import './mixins/media-query-mixins.scss';
 @import './variables';
 @import './base';
 @import './components/boxed-view';
