@@ -18,10 +18,17 @@ Tracker.autorun(() => {
 
   if (selectedNoteId) {
     browserHistory.replace(`/dashboard/${selectedNoteId}`)
+    Session.set('isNavOpen', false)
   }
+})
+
+Tracker.autorun(() => {
+  let isNavOpen = Session.get('isNavOpen')
+  document.body.classList.toggle('is-nav-open', isNavOpen)
 })
 
 Meteor.startup(() => {
   Session.set('selectNoteId', undefined)
+  Session.set('isNavOpen', false)
   ReactDOM.render(routes, document.getElementById('root'))
 })

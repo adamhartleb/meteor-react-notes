@@ -1,3 +1,5 @@
+@import './media-query-mixins';
+
 .page-content {
   margin: 0 auto;
   max-width: $site-max-width;
@@ -5,26 +7,38 @@
   flex-direction: row;
   height: $page-content-height;
 
-  @include desktop () {
+  @include desktop {
     padding: $large-space $space;
   }
 }
 
 .page-content__sidebar {
-  display: none;
-  width: $page-content-sidebar-width;
-  padding-right: $large-space;
+  width: 100vw;
+  transition: left .3s ease;
+  display: flex;
 
-  @include desktop () {
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  left: -100vw;
+
+  @include desktop {
     display: flex;
+    padding-right: $large-space;
+    width: $page-content-sidebar-width;
+    position: static;
   }
+}
+
+.is-nav-open .page-content__sidebar {
+  left: 0;
 }
 
 .page-content__main {
   display: flex;
   width: 100%;
 
-  @include desktop () {
+  @include desktop {
     width: $page-content-main-width;
   }
 }
